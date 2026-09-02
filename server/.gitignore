@@ -1,0 +1,14 @@
+node_modules
+# Keep environment variables out of version control
+.env
+
+# Build output
+/dist
+*.tsbuildinfo
+
+# Prisma generated client
+/src/generated/prisma
+
+# SQLite
+*.db
+*.db-journal

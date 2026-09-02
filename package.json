@@ -1,0 +1,27 @@
+{
+  "name": "testaiassignment",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run setup",
+    "setup": "npm run install:all && npm run db:deploy",
+    "install:all": "npm --prefix mobile install && npm --prefix server install",
+    "dev": "concurrently -n server,metro -c magenta,cyan --kill-others-on-fail \"npm:dev:server\" \"npm:dev:mobile\"",
+    "dev:server": "npm --prefix server run start:dev",
+    "dev:mobile": "npm --prefix mobile run start",
+    "ios": "concurrently -n server,ios -c magenta,green \"npm:dev:server\" \"npm --prefix mobile run ios\"",
+    "android": "concurrently -n server,android -c magenta,green \"npm:dev:server\" \"npm --prefix mobile run android\"",
+    "db:deploy": "npm --prefix server run db:deploy",
+    "db:migrate": "npm --prefix server run db:migrate",
+    "db:generate": "npm --prefix server run db:generate",
+    "db:studio": "npm --prefix server run db:studio",
+    "lint": "npm --prefix mobile run lint && npm --prefix server run lint",
+    "test": "npm --prefix mobile test && npm --prefix server test"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  },
+  "engines": {
+    "node": ">= 22.11.0"
+  }
+}
