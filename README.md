@@ -193,18 +193,3 @@ npm run db:studio     # database GUI
 
 Right now there is a single placeholder model `Item` with `GET /items` and `POST /items`
 ([server/src/items/](server/src/items/)) — replace it with the real domain model.
-
-## Assignment assets
-
-[assets/assets.json](assets/assets.json) holds the media to build against — 6 avatars,
-50 portrait images and a single HLS stream. Use those, no need to source your own.
-`react-native-video` is already installed and plays the HLS URL as is.
-Since there is only one video, "at most one video per user" also keeps the same stream
-from being mounted several times at once.
-
-The font sits next to it: [assets/Ubuntu-Regular.ttf](assets/Ubuntu-Regular.ttf).
-
-## Mobile ↔ backend
-
-`mobile/src/api/client.ts` holds the base URL and the `api()` helper.
-The Android emulator talks to `10.0.2.2:3000`, the iOS simulator to `localhost:3000`.
